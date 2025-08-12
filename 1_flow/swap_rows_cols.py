@@ -43,6 +43,8 @@ input_path = os.path.join(parent_dir, INPUT_FOLDER, INPUT_FILENAME)
 #print("INFO: 入力データファイルパス:", input_path)
 
 output_fol_path = os.path.join(parent_dir, OUTPUT_FOLDER)
+os.makedirs(output_fol_path, exist_ok=True)
+
 output_path = os.path.join(parent_dir, OUTPUT_FOLDER, OUTPUT_FILENAME)
 output_WITH_path = os.path.join(parent_dir, OUTPUT_FOLDER, OUTPUT_WITH_DIST_FILENAME)
 #print("INFO: 出力フォルダパス:", output_fol_path)
@@ -119,10 +121,5 @@ long_df = long_df.groupby("id").apply(calc_distance).reset_index(drop=True)
 # 出力保存
 long_df.to_csv(output_WITH_path, index=False, encoding="utf-8-sig")
 
-# %%
 os.startfile(os.path.realpath(output_fol_path))
 
-
-# %%
-
-# %%
